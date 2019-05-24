@@ -1,6 +1,7 @@
-const os = require("os")
+const Logger = require("./logger")
+const logger = new Logger()
 
-let totalMemory = os.totalmem()
-let freeMemory = os.freemem()
+// Register a listener
+logger.on("messageLogged", e => console.log("Listener Called!!", e))
 
-console.log(`Total Memory: ${totalMemory} | Free Memory: ${freeMemory}`)
+logger.log("message")
